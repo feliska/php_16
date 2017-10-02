@@ -8,12 +8,10 @@ $data = array(
     'APPID' => '8815f7471078f4242933ab1c915a2174',
 );
 
-
 $params = http_build_query($data);
 $url = 'http://api.openweathermap.org/data/2.5/weather?'. $params;
 $json = (file_get_contents($url));
 $all_weather = json_decode($json, True);
-//print_r($all_weather);
 
 $conditions = $all_weather['weather'][0]['description'];
 $temp = $all_weather['main']['temp'];
