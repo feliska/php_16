@@ -18,6 +18,7 @@ $temp = $all_weather['main']['temp'];
 $pressure = $all_weather['main']['pressure'];
 $humidity = $all_weather['main']['humidity'];
 $city = $all_weather['name'];
+$icon = $all_weather['weather'][0]['icon'];
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +40,9 @@ $city = $all_weather['name'];
     </style>
 </head>
 <body>
-<h1>Погодные условия в городе<?=" " . $city ?></h1>
+<h1>Погодные условия в городе<?=" " . $city ?>
+    <img style="margin-bottom: -30px" src="https://openweathermap.org/img/w/<?=$icon ?>.png" width="75" height="75">
+</h1>
 <dl>
     <dt>Температура, °C</dt>
     <dd><?=$temp ?></dd>
