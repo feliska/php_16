@@ -1,0 +1,34 @@
+[{"firstName": "Иван",
+  "lastName": "Иванов",
+  "address": {
+    "city": "Москва",
+    "street": "Юрловский пр.",
+    "postalCode": "127566"},
+  "phoneNumbers": [
+    "(495) 123-5456",
+    "(495) 777-8904"
+  ]
+},
+  {"firstName": "Анна",
+    "lastName": "Петрова",
+    "address": {
+      "city": "Москва",
+      "street": "Кутузовский пр.",
+      "postalCode": "121151"},
+    "phoneNumbers": [
+      "(495) 809-5456",
+      "(495) 888-8904"
+    ]
+  },
+  {"firstName": "Николай",
+    "lastName": "Кузнецов",
+    "address": {
+      "city": "Калининград",
+      "street": "ул. Октябрьская",
+      "postalCode": "236006"},
+    "phoneNumbers": [
+      "(4012) 351-556",
+      "(4012) 956-704"
+    ]
+  }
+  ]
