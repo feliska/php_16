@@ -9,7 +9,7 @@
 $list = glob("./Tests/*.json");
 foreach($list as $file) {
     $file = mb_convert_encoding($file, "utf-8", "windows-1251");
-    $fileName = substr($file, strrpos($file, '/') + 1);
+    $fileName = mb_substr(substr($file, strrpos($file, '/') + 1), 0, -5);
     echo "<div>$fileName</div>";
 }
 ?>
