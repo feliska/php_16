@@ -36,10 +36,9 @@
             echo '<input type="submit" value="Отправить ответы"></form>';
             
         } else {
-            header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found', true, 404);
+            header('HTTP/1.1 404 Not Found');
             include "./404/index.html";
             die();
-            //echo '<p style="color:#FF0000">Выбранного теста нет</p>';
         }
     }
     if (!empty($_POST)) {
