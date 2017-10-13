@@ -36,7 +36,7 @@
             echo '<input type="submit" value="Отправить ответы"></form>';
             
         } else {
-            header('HTTP/1.1 404 Not Found');
+            header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
             include "./404/index.html";
             die();
         }
