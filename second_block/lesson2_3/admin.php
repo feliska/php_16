@@ -15,7 +15,6 @@
 if (isset($_FILES['fname'])) {
     $uploaddir = __DIR__ . '/Tests';
     if (move_uploaded_file($_FILES['fname']['tmp_name'], $uploaddir . "/" . $_FILES['fname']['name'])) {
-        move_uploaded_file($_FILES['fname']['tmp_name'], $uploaddir . "/" . $_FILES['fname']['name']);
         header('Location:./list.php');
     } else {
         print "There some errors!";

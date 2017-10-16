@@ -34,7 +34,7 @@
                 $i++;
                 echo '<fieldset><legend>'.$q['question'].'</legend>';
                 foreach ($q['options'] as $opt) {        
-                    echo '<label><input name="'.$i.'" type="radio" value="'.$opt.'">'.$opt.'</label><br/>';
+                    echo '<label><input name="'. $i .'" type="radio" value="'. $opt .'">'. $opt .'</label><br/>';
                 }
                 echo '</fieldset><br>';
             }
@@ -67,19 +67,7 @@
         $result = 'Результат теста: ' . ceil($valid/$quest_count * 100) . '%';
 
         if (isset($_POST['userName']) && !empty($_POST['userName']))  {
-            $image = imagecreatefromjpeg(__DIR__ . '/cert.jpg');
-            $textColor = imagecolorallocate($image, 0,71, 171);
-            $fontFile = __DIR__ . '/10605.ttf';
-            if (!file_exists($fontFile)) {
-                echo 'Файл шрифта не найден!';
-                exit;
-            }
-            imagettftext($image, 45, 0, 150, 450, $textColor, $fontFile, $userName);
-            imagettftext($image, 20, 0, 150, 600, $textColor, $fontFile, $result);
-            header('Content-Type: image/jpeg');
-            header('Content-Disposition: attachment; filename="cert.jpeg"');
-            imagejpeg($image);
-            imagedestroy($image);
+            header('Location: cert_creator.php?userName=' . $userName . '&result=' . $result);
         } else {
             echo $result, '<br>';
             echo 'Для получения сертификата необходимо ввести имя пользователя';
