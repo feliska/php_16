@@ -10,8 +10,17 @@ $data = array(
 
 $params = http_build_query($data);
 $url = 'http://api.openweathermap.org/data/2.5/weather?'. $params;
-$json = (file_get_contents($url));
-$all_weather = json_decode($json, True);
+
+if ((file_exists('weather_hash.json')) && (time() - filemtime('weather_hash.json')) < 600) {
+    //echo 'Файл существует и является акуальным', '<br>';
+    $weather = file_get_contents('weather_hash.json');
+    $all_weather = json_decode($weather, true);
+} else {
+    $json = (file_get_contents($url));
+    file_put_contents('weather_hash.json', $json);
+    $all_weather = json_decode($json, true);
+    //echo 'Мы взяли новые данные для прогноза';
+}
 
 $conditions = $all_weather['weather'][0]['description'];
 $temp = $all_weather['main']['temp'];
@@ -19,6 +28,7 @@ $pressure = $all_weather['main']['pressure'];
 $humidity = $all_weather['main']['humidity'];
 $city = $all_weather['name'];
 $icon = $all_weather['weather'][0]['icon'];
+
 ?>
 
 <!DOCTYPE html>
