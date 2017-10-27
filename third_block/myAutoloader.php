@@ -1,6 +1,6 @@
 <?php
 
-namespace feliska;
+//namespace feliska;
 
 
 function feliskaAutoload($className)
@@ -30,11 +30,11 @@ function bAutoload($className)
     }
 }
 
-//spl_autoload_register('feliska\feliskaAutoload');
-//spl_autoload_register('feliska\gAutoload');
-//spl_autoload_register('feliska\bAutoload');
+spl_autoload_register('feliska\feliskaAutoload');
+spl_autoload_register('feliska\gAutoload');
+spl_autoload_register('feliska\bAutoload');
 
-feliskaAutoload("Thing");
+//feliskaAutoload("Thing");
 
 
 class Joy extends \feliska\Thing
@@ -58,8 +58,8 @@ $newThing = new Joy('Sony', 'Bravia');
 echo $newThing->getName();
 
 print_r(get_included_files());
-//$vw = new \feliska\NewCar('vw', 'scirocco');
-//echo $vw->getName();
+$vw = new \feliska\NewCar('vw', 'scirocco');
+echo $vw->getName();
 
 
 
