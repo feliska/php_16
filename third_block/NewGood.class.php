@@ -4,10 +4,28 @@
 namespace feliska;
 
 
-abstract class NewGood extends Thing
+abstract class NewGood
 {
+    private $name;
+    private $model;
     protected $price;
     protected $color;
+
+    public function __construct($name, $model)
+    {
+        $this->name = $name;
+        $this->model = $model;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getModel()
+    {
+        return $this->model;
+    }
 
     public function getColor()
     {

@@ -3,7 +3,7 @@
 namespace feliska;
 
 
-class NewDuck extends Thing implements ShowWiki, GetDescription
+class NewDuck extends NewGood implements ShowWiki, GetDescription
 {
     const WINGS = 2;
     const LEGS = 2;
