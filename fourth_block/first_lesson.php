@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=global", "root", "root");
+    $pdo = new PDO("mysql:host=localhost;dbname=global;charset=utf8", "trach", "neto1340");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo 'Подключение не удалось: ' . $e->getMessage();
@@ -43,14 +43,14 @@ $sql = "SELECT * FROM books ORDER BY name";
         <th>ISBN</th>
     </tr>
     <tr>
-        <? foreach ($pdo->query($sql) as $row) : ?>
+        <?php foreach ($pdo->query($sql) as $row) : ?>
         <td><?= $name = $row['name']; ?></td>
         <td><?= $author = $row['author']; ?></td>
         <td><?= $genre = $row['genre']; ?></td>
         <td><?= $year = $row['year']; ?></td>
         <td><?= $isbn = $row['isbn']; ?></td>
     </tr>
-    <? endforeach; ?>
+    <?php endforeach; ?>
 </table>
 </body>
 </html>
